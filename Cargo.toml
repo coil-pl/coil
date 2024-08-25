@@ -2,6 +2,7 @@
 name = "coil-lang"
 version = "0.1.0"
 edition = "2021"
+license-file = "LICENSE"
 
 [workspace]
 members = ["coil-error", "lexer"]

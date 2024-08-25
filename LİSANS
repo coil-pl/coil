@@ -1,0 +1,80 @@
+COIL YAZILIM LİSANSI SÜRÜM 1.0
+
+Bu lisans <https://opensource.org/license/BSD-3-Clause>'da bulunduğu haliyle
+3 maddeli BSD lisansı üzerinden hareketle yazılmıştır.
+
+TANIMLAR
+
+“Lisans” bundan böyle tanımlar, kullanmak; yeniden üretmek; yeniden dağıtmak
+için hükümler ve koşullar ve sınırlar bütünü olarak kullanılır.
+
+“Değişiklik” bundan böyle kapsanan yazılıma eklenti veya kapsanan yazılımdan
+silme gibi kaynak kodun veya ikilik formun şekil veya içeriğinde herhangi
+değişim olarak kullanılır.
+Fakat, bu yazılımın ikilik formlarına statik veya dinamik olarak bağlanmak veya
+bu yazılımın ikilik bir formunu başka bir programın içine dahil etmek
+değişiklik olarak kullanılmaz.
+
+“Tebliğ etmek” bundan böyle parasız olacak şekilde halka açık bir şekilde
+yayımlamak olarak kullanılır.
+
+“İkilik form” bundan böyle kaynak kodu hariç yazılımın herhangi bir şekli
+olarak kullanılır.
+
+TELİF HAKKI
+
+Telif Hakkı 2024 Kerem Göksu <superkerem13@gmail.com>
+
+NOT: Değişiklik yapan varlıklar orijinal telif hakları korunduğu ve tutulduğu
+sürece kendi değişikleri için yeni telif hakları verme hakkına sahiptir.
+
+HÜKÜMLER VE KOŞULLAR
+
+Kaynak kodu olarak ve/veya ikilik formda, değişiklik içererek ya da
+içermeyerek, aşağıdaki hüküm ve koşullara uyulduğu sürece yeniden dağıtma ve
+kullanma hakkı verilir:
+
+1. Kaynak kodunun yeniden dağıtımları yukarıdaki telif hakkını, tanımları, bu
+hükümler ve koşulları, takip eden sınırları ve feragatnameyi korumalı ve devam
+ettirmelidir.
+
+2. İkilik formun yeniden dağıtımları yukarıdaki telif hakkını, tanımları, bu
+hükümler ve koşulları, takip eden sınırları ve feragatnameyi; belgelendirme
+ve/veya sözü edilen dağıtımla birlikte gelen diğer materyallerde olacak şekilde
+korumalı ve devam ettirmelidir.
+
+3. Ne telif hakkı sahiplerinin ne de katkıda bulunanların isimleri veya
+bilgileri yazılı izin edinilmeden bu yazılımdan ortaya çıkarılmış ürünleri
+desteklemek veya teşvik etmek için kullanılamaz.
+
+4. Var olan kaynak koduna veya ikilik formlara kişisel kullanım dışında yapılan
+değişiklikler halka açık bir şekilde tebliğ edilmeli ve aşağıda verilen
+lisanslardan biri ile yayımlanmalıdır:
+    (a) Bu lisans; veya
+
+    (b) Bu lisansın daha yeni bir sürümü; veya
+
+    (c) Bu lisansın telif hakkını koruyan, tüm hükümler ve koşullarını sağlayan
+    ve sınırlarına sahip olan başka bir lisans.
+
+SINIRLAR
+
+1. Eğer bu yazılım herhangi başka lisans hüküm ve koşulları altında olan bir
+üçüncü şahıs taraflı kaynak kodu veya ikilik form içeriyorsa, bu lisans,
+belirtilen üçüncü şahıs taraflı kaynak kodu ve ikilik formunu kapsamaz ve
+kapsayamaz. Bu üçüncü şahıs kaynak kodları ve ikilik formları kendi hüküm ve
+koşullarına uyacak şekilde kullanılmalıdır.
+
+FERAGATNAME
+
+BU YAZILIM TELİF HAKKI SAHİPLERİ VE KATKIDA BULUNANLAR TARAFINDAN OLDUĞU GİBİ
+TEMİN EDİLİR VE HERHANGİ AÇIK VEYA İMA EDİLEN GARANTİLER, ÖZEL AMACA UYGUNLUK
+VE PAZARLANABİLİRLİK GARANTİLERİ SINIRLI OLMAMAK KAYDIYLA FERAGAT EDİLİR. HİÇ
+BİR OLAY SONUCUNDA TELİF HAKKI SAHİPLERİ VEYA KATKIDA BULUNANLAR DOLAYSIZ,
+DOLAYLI, ANZİ, ÖZEL, İSTİSNAİ, VEYA BAĞLI OLAN, BU YAZILIMIN KULLANIMINDAN
+HERHANGİ BİR ŞEKİLDE BÖYLE BİR HASARDAN TEDBİR EDİNİLMİŞ OLUNSA BİLE ORTAYA
+ÇIKAN HERHANGİ HASARDAN (SINIRLI OLMAMAK KAYDIYLA, VEKALETEN MAL VEYA HİZMET
+TEDARİĞİ; KULLANIM, VERİ, VEYA GELİR KAYBI; VEYA İŞİN DURMASI) NE OLURSA OLSUN
+VE HERHANGİ BİR SORUMLULUK DAYANAĞINA KARŞIN, SÖZLEŞMEDEN; KUSURSUZ
+SORUMLULUKTAN; VEYAHUT HAKSIZ MUAMELEDEN (İHMAL NEDENLİ OLSUN OLMASIN) SORUMLU
+DEĞİLDİR.

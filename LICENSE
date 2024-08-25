@@ -1,0 +1,73 @@
+COIL SOFTWARE LICENSE VERSION 1.0
+
+This license is derived from the BSD-3-clause license as specified in
+<https://opensource.org/license/BSD-3-Clause>.
+
+DEFINITIONS
+
+“License” shall be defined as the definitions, the terms and conditions for use, reproduction,
+redistribution, the limitations.
+
+“Modification” shall be defined as any change in form or content of source code or the
+binary form such as additions to or deletions from the covered software.
+However, linking statically or dynamically with a binary form of this software
+or embedding binary forms of this software in another does not constitute
+modification.
+
+“Disclose” shall be defined as release available to the public, free of charge.
+
+“Binary form” shall be defined as any form of the software other than the source code.
+
+COPYRIGHT
+
+Copyright 2024 Kerem Göksu <superkerem13@gmail.com>
+
+NOTE: Modifying entities have the right to add to the copyright notice for
+their own modifications as long as the original copyright is retained.
+
+TERMS AND CONDITIONS
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, the
+definitions, this list of conditions and the following limitations and
+disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+the definitions, this list of conditions and the following limitations and
+disclaimer in the documentation and/or other materials provided with the
+distribution.
+
+3. Neither the name of the copyright holders nor the names of its contributors
+may be used to endorse or promote products derived from this software without
+specific prior written permission.
+
+4. Modifications made to the existing source code or binary forms for
+non-private use must be publicly disclosed and released under:
+    (a) This license; or
+
+    (b) A newer version of this license; or
+
+    (c) Another license which retains the copyright of, fulfills the terms and
+    conditions of and has the limitations of this license.
+
+LIMITATIONS
+
+1. If this software contains any third party source code or binary forms under
+different license terms, this license does not and cannot extend to these third
+party sources or binaries. These third party source code or binary forms must
+be used under it's own terms.
+
+DISCLAIMER
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
