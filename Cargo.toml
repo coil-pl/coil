@@ -1,0 +1,10 @@
+[package]
+name = "coil-lang"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = ["coil-error", "lexer"]
+
+[dependencies]
+lexer = { path = "lexer" }
