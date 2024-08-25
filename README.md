@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="30%" src="assets/coil.png">
+    <img width="30%" src="assets/coil.png" alt="Coil Programming Language Logo">
 </p>
 <h1 align="center">The Coil Programming Language</h1>
 
