@@ -1,3 +1,4 @@
 /target
 tarpaulin-report.html
 build_rs_cov.profraw
+Cargo.lock
