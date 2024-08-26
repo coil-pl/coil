@@ -511,6 +511,13 @@ impl Lexer {
                     self.line,
                 )));
             }
+            '\\' => {
+                let _ = self.cursor.advance(1);
+                return Ok(Some(Token::new(
+                    TokenKind::Operator(Operator::Backslash),
+                    self.line,
+                )));
+            }
             '"' => {
                 return self
                     .parse_string(ParseStringOptions { raw: false })
@@ -524,11 +531,9 @@ impl Lexer {
             c if c.is_ascii_whitespace() => unreachable!(),
             c if c.is_alphabetic() => return self.parse_ident().map(Some),
             c => {
-                println!("unimplemented character: {c:?}@{}", self.cursor.position);
-                todo!();
+                return Err(Error::new(UNEXPECTED, &format!("found unexpected character: {c:?} (U+{:06x})", c as u32), self.file.as_ref(), self.line));
             }
         }
-        Ok(None)
     }
 
     fn parse_string_escape(&mut self, buf: &mut String) -> Result<(), Error> {

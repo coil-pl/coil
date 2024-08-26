@@ -7,7 +7,7 @@ The Coil Programming Language is a language that aims to be maximally efficient 
 
 ## 🎯 Implementation Progress
 
-- 🕑 Lexer
+- ✔️ Lexer
 - ❌ Parser
 - ❌ Backend
 - ❌ Standard Library

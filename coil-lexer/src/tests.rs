@@ -7,9 +7,8 @@ use crate::{
 
 fn quick_lex(source: &str) -> Result<Vec<Token>, Error> {
     let lx = Lexer::new("<inline>", source);
-    let v: Vec<_> = lx.collect();
-    let mut result = Vec::with_capacity(v.len());
-    for i in v {
+    let mut result = Vec::new();
+    for i in lx {
         result.push(i?);
     }
     Ok(result)
@@ -242,7 +241,7 @@ fn test_op_bitwise_shift() {
 
 #[test]
 fn test_op_misc() {
-    let source = "= ; : . .. , ? -> =>";
+    let source = "= ; : . .. , ? -> => \\";
     let expected = [
         TokenKind::Operator(Operator::Assign),
         TokenKind::Operator(Operator::Semicolon),
@@ -253,6 +252,7 @@ fn test_op_misc() {
         TokenKind::Operator(Operator::QuestionMark),
         TokenKind::Operator(Operator::Arrow),
         TokenKind::Operator(Operator::Bolt),
+        TokenKind::Operator(Operator::Backslash),
     ]
     .map(|x| Token::new(x, 1));
     let tokens = quick_lex(source).expect("expected source to be fully lexed");
@@ -539,4 +539,14 @@ fn test_string_err() {
             &["maybe finish the string with a '\"#'".into()]
         );
     }
+}
+
+#[test]
+fn test_unexpected_character() {
+    let source = "$";
+    let tokens = quick_lex(source).expect_err("expected to get an error");
+    assert_eq!(tokens.code, UNEXPECTED);
+    assert_eq!(tokens.message.as_ref(), "found unexpected character: '$' (U+000024)");
+    assert_eq!(tokens.line, 1);
+    assert_eq!(tokens.file.as_ref(), "<inline>");
 }

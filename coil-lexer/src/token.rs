@@ -49,8 +49,9 @@ pub enum Keyword {
     Trait,
     True,
     Type,
-    Unsafe,
     Union,
+    Unless,
+    Unsafe,
     Where,
     While,
 }
@@ -72,6 +73,7 @@ pub enum Operator {
     QuestionMark, // ?
     Arrow,        // ->
     Bolt,         // =>
+    Backslash,    // \
     Plus,
     PlusAssign,
     Minus,

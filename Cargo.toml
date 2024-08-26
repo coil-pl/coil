@@ -5,7 +5,8 @@ edition = "2021"
 license-file = "LICENSE"
 
 [workspace]
-members = ["coil-error", "lexer"]
+members = ["coil-error", "coil-parser", "coil-lexer"]
 
 [dependencies]
-lexer = { path = "lexer" }
+clap = { version = "4.5.16", features = ["derive"] }
+coil-lexer = { path = "coil-lexer" }
