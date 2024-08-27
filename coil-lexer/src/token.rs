@@ -1,4 +1,4 @@
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub enum TokenKind {
     Identifier(Box<str>),
     Keyword(Keyword),
@@ -7,7 +7,7 @@ pub enum TokenKind {
     Parenthesis { closing: bool, kind: Parenthesis },
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct Token {
     pub kind: TokenKind,
     pub line: usize,
@@ -19,7 +19,7 @@ impl Token {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Keyword {
     Break,
     Consttime,
@@ -56,14 +56,14 @@ pub enum Keyword {
     While,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub enum Literal {
     String,
     Integer { radix: usize },
     Float { radix: usize },
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Operator {
     Dot,          // .
     Comma,        // ,
@@ -109,7 +109,7 @@ pub enum Operator {
     Assign,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Parenthesis {
     Normal,
     Square,
