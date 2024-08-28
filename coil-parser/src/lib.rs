@@ -1,110 +1,65 @@
-use coil_lexer::Operator;
+mod expr;
+use std::{ffi::{OsStr, OsString}, path::PathBuf, str::FromStr};
 
-#[derive(Debug, Clone, Hash)]
-pub enum ArgName {
-    Unnamed(Box<str>), // _ inner: T
-    Single(Box<str>), // argname: T
-    Assigned { outer: Box<str>, inner: Box<str> }, // outer inner: T
+use coil_error::Error;
+use coil_lexer::{Keyword, Lexer, Literal, Operator, Token, TokenKind};
+pub use expr::*;
+
+pub struct Parser {
+    lexer: Lexer,
+    saved_token: Option<Token>,
+    line: usize,
+    maybe_insert_semicolon: bool,
 }
 
-impl PartialEq for ArgName {
-    fn eq(&self, other: &Self) -> bool {
-        match self {
-            Self::Unnamed(_) => false,
-            Self::Single(x) => match other {
-                Self::Unnamed(_) => false,
-                Self::Single(y) => x == y,
-                Self::Assigned { outer: y, .. } => x == y,
-            },
-            Self::Assigned { outer: x, .. } => match other {
-                Self::Unnamed(_) => false,
-                Self::Single(y) => x == y,
-                Self::Assigned { outer: y, .. } => x == y,
-            },
+impl Parser {
+    pub fn new(lexer: Lexer) -> Self {
+        Self {
+            lexer,
+            saved_token: None,
+            line: 1,
+            maybe_insert_semicolon: false,
         }
     }
-}
 
-#[derive(Debug, Clone, Hash)]
-pub struct Signature {
-    returns: Box<Expr>,
-    named_args: Vec<(ArgName, Expr)>,
-}
+    pub fn get_token(&mut self) -> Result<Option<Token>, Error> {
+        let saved = self.saved_token.take();
+        let Some(x) = (if saved.is_some() {
+            saved
+        } else {
+            self.lexer.next_token()?
+        }) else {
+            return Ok(None);
+        };
+        if self.maybe_insert_semicolon && self.line < x.line {
+            self.saved_token = Some(x);
+            self.maybe_insert_semicolon = false;
+            return Ok(Some(Token::new(TokenKind::Operator(Operator::Semicolon), self.line)));
+        }
+        self.line = x.line;
+        self.maybe_insert_semicolon = match x.kind {
+            TokenKind::Identifier(_)
+            | TokenKind::Keyword(Keyword::Break | Keyword::Continue | Keyword::Fallthrough | Keyword::Return)
+            | TokenKind::Literal(_, _)
+            | TokenKind::Parenthesis { closing: true, .. } => true,
+            _ => false,
+        };
+        Ok(Some(x))
+    }
 
-#[derive(Debug, Clone, Hash)]
-pub enum Statement {
-    Module {
-        name: Box<Expr>,
-    },
-    Use {
-        name: Box<Expr>,
-    },
-    Fn {
-        name: Box<str>,
-        signature: Signature,
-    },
-}
-
-pub enum BinaryOperator {
-    Dot,
-    Comma,
-    Range,
-    Add,
-    AddAssign,
-    Sub,
-    SubAssign,
-    Mul,
-    MulAssign,
-    Div,
-    DivAssign,
-    Mod,
-    ModAssign,
-    Eq,
-    NotEq,
-    Greater,
-    GreaterEq,
-    Lesser,
-    LesserEq,
-    And,
-    AndAssign,
-    Or,
-    OrAssign,
-    BitNot,
-    BitAnd,
-    BitAndAssign,
-    BitOr,
-    BitOrAssign,
-    BitXor,
-    BitXorAssign,
-    BitShiftLeft,
-    BitShiftLeftAssign,
-    BitShiftRight,
-    BitShiftRightAssign,
-    Assign,
-}
-
-pub enum UnaryOperator {
-    Try,
-    Not,
-    DoubleReference,
-    Reference,
-    Dereference,
-    Positive,
-    Negative,
-}
-
-#[derive(Debug, Clone, Hash)]
-pub enum Expr {
-    Statement(Statement),
-    Binary {
-        op: Operator,
-        left: Box<Expr>,
-        right: Box<Expr>,
-    },
-    Unary {
-        op: Operator,
-        expr: Box<Expr>,
-    },
+    pub fn parse(&mut self) -> Expr {
+        self.lexer.reset();
+        let filename = self.lexer.file.as_ref();
+        let filename = OsString::from_str(filename).unwrap();
+        let filename = PathBuf::from(filename);
+        let filename = filename.file_stem().unwrap();
+        let filename: String = filename.to_owned().into_string().unwrap();
+        let mut module = Statement::Module {
+            name: Box::new(Expr::Identifier(filename.into())),
+            children: vec![],
+        };
+        Expr::Statement(module)
+    }
 }
 
 #[cfg(test)]
