@@ -25,7 +25,7 @@ struct ParseStringOptions {
 
 pub struct Lexer {
     cursor: LexerCursor,
-    file: Box<str>,
+    pub file: Box<str>,
     line: usize,
 }
 
@@ -54,6 +54,7 @@ static KEYWORDS: phf::Map<&'static str, Keyword> = phf_map! {
     "else" => Keyword::Else,
     "enum" => Keyword::Enum,
     "extern" => Keyword::Extern,
+    "fallthrough" => Keyword::Fallthrough,
     "false" => Keyword::False,
     "fn" => Keyword::Fn,
     "for" => Keyword::For,
@@ -100,6 +101,11 @@ impl Lexer {
     pub fn cursor(&self) -> &LexerCursor {
         &self.cursor
     }
+
+    pub fn reset(&mut self) {
+        self.cursor.position = 0;
+        self.line = 1;
+    } 
 
     pub fn parse_num(&mut self, radix: usize) -> Result<Token, Error> {
         let mut buf = String::new();
